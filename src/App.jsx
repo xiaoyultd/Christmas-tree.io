@@ -9,7 +9,7 @@ import Contact from './pages/Contact';
 
 function App() {
   return (
-    <Router basename="/Christmas-tree.io">
+    <Router basename="/">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
