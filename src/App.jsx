@@ -8,7 +8,8 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 
 function App() {
-  <Router basename="/Christmas-tree.io">
+  return (
+    <Router basename="/Christmas-tree.io">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
