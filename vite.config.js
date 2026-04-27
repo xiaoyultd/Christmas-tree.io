@@ -11,7 +11,7 @@ export default defineConfig({
   },
   // Change base to '/' for user/org pages (username.github.io)
   // or to '/repo-name/' for project pages (username.github.io/repo-name)
-  base: '/Christmas-tree.io/',
+  base: '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
