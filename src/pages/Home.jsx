@@ -2,6 +2,8 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Hero from '@/components/home/Hero';
 import Advantages from '@/components/home/Advantages';
+import CategoryShowcase from '@/components/home/CategoryShowcase';
+import HomeProductShowcase from '@/components/home/HomeProductShowcase';
 import CTASection from '@/components/home/CTASection';
 import BuyerFAQ from '@/components/home/BuyerFAQ';
 
@@ -11,6 +13,8 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <CategoryShowcase />
+        <HomeProductShowcase />
         <Advantages />
         <BuyerFAQ />
         <CTASection />

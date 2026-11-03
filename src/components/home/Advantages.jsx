@@ -1,47 +1,29 @@
 import { motion } from 'framer-motion';
-import { ShieldCheck, Truck, Factory, Palette, Globe, HeadphonesIcon } from 'lucide-react';
+import { CheckCircle2, FileText, PackageCheck, Ship } from 'lucide-react';
 
-const items = [
-  { icon: Factory, title: 'Factory Direct', desc: 'Source directly from manufacturers. No middlemen, guaranteed competitive pricing.' },
-  { icon: Palette, title: 'OEM / ODM', desc: 'Custom logo, packaging, and product design. Your brand, our expertise.' },
-  { icon: ShieldCheck, title: 'Quality Assured', desc: '98.6% positive feedback. Strict QC inspection before every shipment.' },
-  { icon: Truck, title: 'Fast Shipping', desc: 'Reliable global logistics from Guangzhou port. 48h dispatch commitment.' },
-  { icon: Globe, title: 'Global Reach', desc: 'Serving 50+ countries across Europe, Americas, Southeast Asia & beyond.' },
-  { icon: HeadphonesIcon, title: 'Dedicated Support', desc: 'Ms. Summer & team available via email, WhatsApp for responsive service.' },
+const steps = [
+  { icon: FileText, num: '01', title: 'Define the requirement', text: 'Send the model, quantity, destination market and required delivery window.' },
+  { icon: CheckCircle2, num: '02', title: 'Confirm product details', text: 'Align size, material, finish, lighting, packaging and private-label requirements.' },
+  { icon: PackageCheck, num: '03', title: 'Sample & order confirmation', text: 'Approve the selected specification before the bulk production arrangement.' },
+  { icon: Ship, num: '04', title: 'Production & export', text: 'Coordinate packing, shipment method and the export documents required for delivery.' },
 ];
 
 export default function Advantages() {
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <div className="text-gold font-inter text-sm font-semibold tracking-widest uppercase mb-3">Why Choose Us</div>
-          <h2 className="font-playfair text-4xl font-bold text-navy mb-4">Your Reliable Partner in<br />Holiday Decoration Supply</h2>
-          <p className="font-inter text-muted-foreground max-w-xl mx-auto">With 18+ years in the industry, we deliver premium Christmas & holiday decorations with factory-direct pricing and flexible MOQ.</p>
+    <section className="bg-navy text-white overflow-hidden">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2">
+        <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="px-6 md:px-12 lg:px-16 py-24 md:py-32">
+          <div className="text-gold text-xs font-bold tracking-[0.2em] uppercase mb-4">Working with Xiaoyu</div>
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-7">A clear route from catalog to shipment.</h2>
+          <p className="text-white/65 leading-7 mb-12 max-w-xl">We translate the catalog into an order plan buyers can act on. Every inquiry starts with a model and specification, then moves through confirmation, packaging and export coordination.</p>
+          <div className="grid sm:grid-cols-2 gap-x-8 gap-y-9">
+            {steps.map((step) => <div key={step.num} className="border-t border-white/15 pt-5"><div className="flex items-center justify-between mb-4"><step.icon className="w-5 h-5 text-gold" /><span className="text-xs text-white/35">{step.num}</span></div><h3 className="font-playfair text-xl font-bold mb-2">{step.title}</h3><p className="text-sm text-white/55 leading-6">{step.text}</p></div>)}
+          </div>
         </motion.div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {items.map((item, i) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group p-8 rounded-xl border border-border hover:border-gold/40 hover:shadow-lg transition-all duration-300"
-            >
-              <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center mb-5 group-hover:bg-gold/20 transition-colors">
-                <item.icon className="w-6 h-6 text-gold" />
-              </div>
-              <h3 className="font-playfair text-lg font-bold text-navy mb-2">{item.title}</h3>
-              <p className="font-inter text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-            </motion.div>
-          ))}
+        <div className="grid grid-cols-2 min-h-[620px] lg:min-h-full">
+          <img src="/products/catalog-015-1.webp" alt="Christmas tree product presentation" className="w-full h-full object-cover row-span-2" />
+          <img src="/products/catalog-055-1.webp" alt="Green Christmas tree product detail" className="w-full h-full object-cover" />
+          <img src="/products/catalog-092-1.webp" alt="Tabletop Christmas tree collection" className="w-full h-full object-cover" />
         </div>
       </div>
     </section>

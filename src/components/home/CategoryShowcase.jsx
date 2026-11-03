@@ -1,99 +1,35 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 const categories = [
-  {
-    name: 'Full-Size Christmas Trees',
-    desc: 'PE+PVC mixed, pre-lit & flocked full-size trees — 150cm to 240cm',
-    image: 'https://images.unsplash.com/photo-1544637566-11b148a4b15a?w=600&q=80',
-    count: '10+ styles',
-  },
-  {
-    name: 'Desktop & Mini Trees',
-    desc: 'Tabletop and desktop Christmas trees — 20cm to 120cm',
-    image: 'https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=600&q=80',
-    count: '8+ styles',
-  },
-  {
-    name: 'Slim & Pencil Trees',
-    desc: 'Space-saving slim pencil-style trees for apartments and retail',
-    image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600&q=80',
-    count: '5+ styles',
-  },
-  {
-    name: 'Pre-Lit LED Trees',
-    desc: 'Factory pre-wired warm white LED Christmas trees — plug & display',
-    image: 'https://images.unsplash.com/photo-1576919228236-a097c32a5cd4?w=600&q=80',
-    count: '6+ styles',
-  },
-  {
-    name: 'Flocked Snow Trees',
-    desc: 'White snow-flocked Christmas trees — uniform flocking on all tips',
-    image: 'https://images.unsplash.com/photo-1512389142860-9c449e58a543?w=600&q=80',
-    count: '6+ styles',
-  },
-  {
-    name: 'Creative & Specialty Trees',
-    desc: 'Inverted, upside-down, and unique statement Christmas trees',
-    image: 'https://images.unsplash.com/photo-1545622783-b3e021430fee?w=600&q=80',
-    count: '4+ styles',
-  },
+  { name: 'Luxury Christmas Trees', count: '49 series', image: '/products/catalog-001-1.webp', copy: 'Decorated statement trees developed for retail displays, hospitality and premium seasonal programs.' },
+  { name: 'Green Christmas Trees', count: '21 series', image: '/products/catalog-052-1.webp', copy: 'Classic green profiles in varied heights, tip structures and finishes for broad commercial use.' },
+  { name: 'Snow Flocked Trees', count: '10 series', image: '/products/catalog-071-1.webp', copy: 'Winter-led flocked designs for immersive store, event and residential collections.' },
+  { name: 'Tabletop & Mini Trees', count: '26 series', image: '/products/catalog-084-1.webp', copy: 'Compact, decorated products designed for shelves, desks, gifting and impulse retail.' },
 ];
 
 export default function CategoryShowcase() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 md:py-32 bg-[#f5f1e9]">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <div className="text-gold font-inter text-sm font-semibold tracking-widest uppercase mb-3">Product Range</div>
-          <h2 className="font-playfair text-4xl font-bold text-navy mb-4">Christmas Tree Collections</h2>
-          <p className="font-inter text-muted-foreground max-w-xl mx-auto">Wholesale Christmas trees in every style and size. All support custom branding, private label, and bulk pricing.</p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categories.map((cat, i) => (
-            <motion.div
-              key={cat.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-            >
-              <Link
-                to="/products"
-                className="group relative block rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
-              >
-                <div className="h-56 overflow-hidden">
-                  <img
-                    src={cat.image}
-                    alt={cat.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <div className="text-gold text-xs font-inter font-medium mb-1">{cat.count}</div>
-                  <h3 className="font-playfair text-lg font-bold text-white mb-1">{cat.name}</h3>
-                  <p className="font-inter text-white/70 text-xs leading-snug mb-3">{cat.desc}</p>
-                  <div className="flex items-center gap-1 text-gold text-xs font-inter font-semibold">
-                    View Products <ArrowRight className="w-3 h-3" />
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+        <div className="grid lg:grid-cols-[0.75fr_1.25fr] gap-10 items-end mb-14">
+          <div><div className="text-gold text-xs font-bold tracking-[0.2em] uppercase mb-4">The complete collection</div><h2 className="text-4xl md:text-5xl font-bold text-navy leading-tight">Four ranges.<br />One focused catalog.</h2></div>
+          <p className="text-muted-foreground leading-7 max-w-2xl lg:ml-auto">Instead of a generic product list, the catalog is organized around how buyers source: premium decorated programs, commercial green trees, winter flocked ranges and compact tabletop products.</p>
         </div>
-
-        <div className="text-center mt-10">
-          <Link to="/products" className="inline-flex items-center gap-2 border-2 border-navy text-navy font-inter font-semibold px-8 py-3 rounded-sm hover:bg-navy hover:text-white transition-colors">
-            View All Trees <ArrowRight className="w-4 h-4" />
-          </Link>
+        <div className="grid md:grid-cols-2 gap-5">
+          {categories.map((category, index) => (
+            <motion.article key={category.name} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.08 }} className="group relative overflow-hidden rounded-2xl min-h-[460px] bg-navy">
+              <img src={category.image} alt={category.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/20 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-7 md:p-9 text-white">
+                <div className="text-gold text-xs font-bold tracking-widest uppercase mb-3">{category.count}</div>
+                <h3 className="text-3xl font-bold mb-3">{category.name}</h3>
+                <p className="text-sm text-white/70 leading-6 max-w-lg mb-5">{category.copy}</p>
+                <Link to="/products" className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:text-gold">Browse collection <ArrowUpRight className="w-4 h-4" /></Link>
+              </div>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>
