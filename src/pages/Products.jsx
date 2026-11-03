@@ -17,7 +17,7 @@ export default function Products() {
             <h1 className="font-playfair text-4xl md:text-5xl font-bold text-white mb-4">Wholesale Christmas<br />Tree Catalog</h1>
             <p className="font-inter text-white/65 max-w-2xl mx-auto">Explore 20 buyer-ready selections from our 106-series master catalog. Request the complete catalog or ask us to build a shortlist for your market.</p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a href="#catalog-selection" className="inline-flex items-center justify-center rounded-lg bg-gold px-6 py-3 font-inter text-sm font-semibold text-white hover:bg-gold/90">View 20 Selected Models</a>
+              <a href="#catalog-selection" className="inline-flex items-center justify-center rounded-lg bg-gold px-6 py-3 font-inter text-sm font-semibold text-white hover:bg-gold/90">Browse All 106 Series</a>
               <Link to="/contact?product=Full%20106-Series%20Christmas%20Tree%20Catalog" className="inline-flex items-center justify-center rounded-lg border border-white/30 px-6 py-3 font-inter text-sm font-semibold text-white hover:border-gold hover:text-gold">Request Full Catalog</Link>
             </div>
           </motion.div>

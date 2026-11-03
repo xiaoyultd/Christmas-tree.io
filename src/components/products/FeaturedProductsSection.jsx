@@ -55,9 +55,9 @@ export default function FeaturedProductsSection() {
     <section id="catalog-selection" className="py-16 bg-background scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-10">
-          <div className="text-gold font-inter text-sm font-semibold tracking-widest uppercase mb-3">2026 Buyer Selection</div>
-          <h2 className="font-playfair text-4xl font-bold text-navy mb-4">20 Wholesale Christmas Tree Models</h2>
-          <p className="font-inter text-muted-foreground max-w-3xl mx-auto">Selected from the official Guangzhou Xiaoyu catalog across luxury, green, snow-flocked and tabletop collections. Images are stored on our own website for faster, more reliable browsing.</p>
+          <div className="text-gold font-inter text-sm font-semibold tracking-widest uppercase mb-3">Complete 2026 Collection</div>
+          <h2 className="font-playfair text-4xl font-bold text-navy mb-4">106 Wholesale Christmas Tree Series</h2>
+          <p className="font-inter text-muted-foreground max-w-3xl mx-auto">Browse our complete official catalog across luxury, green, snow-flocked and tabletop collections. Search by model or filter by collection, then send the exact product directly with your inquiry.</p>
         </div>
         <div className="bg-white border border-border rounded-xl p-4 mb-8 flex flex-col lg:flex-row gap-4 justify-between">
           <div className="flex flex-wrap gap-2">{categories.map((item) => <button key={item} onClick={() => setCategory(item)} className={`text-xs font-inter font-semibold px-4 py-2 rounded-full border ${category === item ? 'bg-navy text-white border-navy' : 'bg-white text-navy border-border hover:border-gold'}`}>{item}</button>)}</div>

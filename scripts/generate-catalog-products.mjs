@@ -7,13 +7,6 @@ import * as cheerio from '../../leadflow-crm-main/node_modules/cheerio/dist/esm/
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const catalogHtml = 'D:/广州小彧/圣诞树/catalog.html';
 const $ = cheerio.load(await fs.readFile(catalogHtml, 'utf8'));
-const quotas = {
-  'Luxury Christmas Trees': 6,
-  'Green Christmas Trees': 5,
-  'Snow Flocked Trees': 4,
-  'Tabletop & Mini Trees': 5,
-};
-
 const sourceProducts = $('section.product').map((_, section) => {
   const node = $(section);
   const spec = Object.fromEntries(node.find('.specs dt').map((__, dt) => {
@@ -34,16 +27,7 @@ const sourceProducts = $('section.product').map((_, section) => {
   };
 }).get();
 
-const selected = [];
-for (const [category, quota] of Object.entries(quotas)) {
-  const seenImages = new Set();
-  for (const product of sourceProducts.filter((item) => item.category === category)) {
-    if (!product.hero || seenImages.has(product.hero)) continue;
-    seenImages.add(product.hero);
-    selected.push(product);
-    if (selected.filter((item) => item.category === category).length === quota) break;
-  }
-}
+const selected = sourceProducts.filter((product) => product.hero);
 
 const outputImages = path.join(root, 'public', 'products');
 await fs.rm(outputImages, { recursive: true, force: true });
@@ -60,14 +44,14 @@ for (const [index, product] of selected.entries()) {
   const urls = [product.hero, ...product.gallery].filter(Boolean).filter((value, i, all) => all.indexOf(value) === i).slice(0, 2);
   const images = [];
   for (const [imageIndex, url] of urls.entries()) {
-    const filename = `catalog-${String(index + 1).padStart(2, '0')}-${imageIndex + 1}.webp`;
+    const filename = `catalog-${String(index + 1).padStart(3, '0')}-${imageIndex + 1}.webp`;
     const buffer = await downloadImage(url);
     await sharp(buffer).resize({ width: 900, height: 900, fit: 'inside', withoutEnlargement: true }).webp({ quality: 80 }).toFile(path.join(outputImages, filename));
     images.push(`/products/${filename}`);
   }
   products.push({
     id: `XY-${String(index + 1).padStart(3, '0')}`,
-    slug: `christmas-tree-${String(index + 1).padStart(2, '0')}`,
+    slug: `christmas-tree-${String(index + 1).padStart(3, '0')}`,
     name: product.name,
     category: product.category,
     material: product.material,
